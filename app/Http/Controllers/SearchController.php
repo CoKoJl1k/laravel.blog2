@@ -15,7 +15,5 @@ class SearchController extends Controller
         $posts = Posts::where('title', 'like', "%{$s}%")->paginate(2);
         return  view('welcome_search', ['posts' => $posts , 's' => $s]);
     }
-
     //test
-
 }
