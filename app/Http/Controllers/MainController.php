@@ -10,7 +10,6 @@ class MainController extends Controller
 {
     public function index()
     {
-        //$posts = DB::select('select * from posts order by id desc');
         $posts = DB::table('posts')->paginate(3);
         return  view('welcome', ['posts' => $posts]);
     }

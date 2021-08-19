@@ -13,7 +13,6 @@ class CreateController extends Controller
         return  view('create');
     }
 
-
     public function create(Request $request)
     {
 
@@ -45,7 +44,6 @@ class CreateController extends Controller
         ];
 
         Posts::create($post);// for array
-        //dump($request->title);//dump($request);//dd($request->input('title'));
         session()->flash('success' , 'Данные успешно сохранены');
         return redirect('/');
     }

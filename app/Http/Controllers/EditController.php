@@ -55,12 +55,10 @@ class EditController extends Controller
             if (file_exists('storage/' . $images[0]->images)) {
                 Storage::disk('public')->delete($images[0]->images);
             }
-
             DB::delete('delete from posts where id = :id', [":id" => $id]);
             $posts = DB::table('posts')->paginate(6);
             session()->flash('success', 'Данные успешно удалены');
             return redirect()->route('welcome', ['posts' => $posts]);
-
         } else {
             $errors = ["data_has_not_been_delete" => "Произошла ошибка. Данные не удалены!"];
             return redirect()->route('errors_update')->withErrors($errors);
