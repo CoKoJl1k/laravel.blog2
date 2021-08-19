@@ -16,4 +16,6 @@ class SearchController extends Controller
         return  view('welcome_search', ['posts' => $posts , 's' => $s]);
     }
 
+    //test
+
 }
