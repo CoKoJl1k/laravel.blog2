@@ -5,7 +5,7 @@
     @include('success_message')
     <div class="container">
         <h1>Создание поста</h1>
-        <form method="POST" action="{{route('create_form')}}" enctype="multipart/form-data"  >
+        <form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data"  >
 
             @method('POST')
             @csrf

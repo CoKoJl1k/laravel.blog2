@@ -17,6 +17,10 @@ class EditController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
+        echo 'hello';
+        return view('/');
+    }
+/*
         $title = $request->input('title');
         $description = $request->input('description');
         $images = DB::select('select images from posts where id = :id', [":id" => $id]);
@@ -43,12 +47,11 @@ class EditController extends Controller
             $errors = ["data_has_not_been_saved" => "Произошла ошибка. Данные не сохранены!"];
             return redirect()->route('errors_update')->withErrors($errors);
         }
-    }
+*/
 
     public function destroy($id): RedirectResponse
     {
         $images = DB::select('select images from posts where id = :id', [":id" => $id]);
-
         if ($images) {
             // if we have a file on disk, delete it
             if (file_exists('storage/' . $images[0]->images)) {

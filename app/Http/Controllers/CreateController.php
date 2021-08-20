@@ -14,12 +14,12 @@ class CreateController extends Controller
 
     public function create(Request $request)
     {
-
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'images' => 'nullable|image'
         ]);
+
         //dump($request->all());
         /*
                 $post = new Posts;

@@ -28,7 +28,7 @@ use App\Http\Controllers\PostsController;
 // for user
 Route::get('/', [MainController::class, 'index'])->name('welcome');
 Route::get('create', [CreateController::class, 'index'])->name('form');
-
+Route::post('create', [CreateController::class, 'create'])->name('create_form');
 
 // for admin
 Route::prefix('admin')->group(function () {
