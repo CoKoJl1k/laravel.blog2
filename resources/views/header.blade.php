@@ -26,7 +26,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('welcome')}}" class="text-white">Главная</a></li>
                         <li><a href="{{route('errors_update')}}" class="text-white">Страница с ошибками</a></li>
-                        <li><a href="{{route('test2')}}" class="text-white">Тестовая страница </a></li>
+                        <li><a href="{{route('test2')}}" class="text-white">test2</a></li>
                         <li><a href="{{route('list_of_posts')}}" class="text-white">Тестовая страница списка постов</a></li>
                         <li><a href="#" class="text-white">Email me</a></li>
                     </ul>

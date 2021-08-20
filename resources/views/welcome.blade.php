@@ -2,6 +2,7 @@
 
 @include('success_message')
 
+
 @section('content')
     <section class="jumbotron text-center">
         <div class="container">

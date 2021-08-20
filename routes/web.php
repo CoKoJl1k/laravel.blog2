@@ -1,15 +1,19 @@
 <?php
 
 
+
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\SearchController;
 
 use App\Http\Controllers\ListOfPostsController;
+
+use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-
+use App\Models\Posts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +45,7 @@ Route::get('search',[SearchController::class, 'index'])->name('search');
 
 
 Route::get('errors_update', function () {
+
     return view('errors_update');
 })->name('errors_update');
 
@@ -48,6 +53,9 @@ Route::get('errors_update', function () {
 
 Route::get('list_of_posts', [ListOfPostsController::class, 'index'])->name('list_of_posts');
 
+
 Route::get('test2', function () {
-    return view('test2');
+    $obj = new TestController();
+    return $obj->index();
 })->name('test2');
+
