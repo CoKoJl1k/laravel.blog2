@@ -44,7 +44,7 @@ Route::get('edit/{id}', [EditController::class, 'index'])->name('edit_form_get')
 Route::put('edit/{id}', [EditController::class, 'update'] )->name('edit_form_put');
 Route::delete('delete/{id}',[EditController::class, 'destroy'])->name('delete');
 */
-Route::get('search',[SearchController::class, 'index'])->name('search');
+Route::get('search',[SearchController::class, 'index'])->name('search_user');
 
 Route::get('errors_update', function () {
     return view('errors_update');

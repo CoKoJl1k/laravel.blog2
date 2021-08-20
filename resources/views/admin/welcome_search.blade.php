@@ -15,7 +15,7 @@
         </div>
     </section>
 
-    @include('search')
+    @include('admin.search')
 
     <div class="album py-5 bg-light">
         <div class="container">
