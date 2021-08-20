@@ -1,7 +1,7 @@
+
 @include('header')
 
 @include('success_message')
-
 
 @section('content')
     <section class="jumbotron text-center">
@@ -32,8 +32,9 @@
                                 <p class="card-text">{{ $post->description }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-
-                                  </div>
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                                    <!-- <a href="{{ route('posts.destroy', $post->id) }}"type="button" class="btn btn-sm btn-outline-secondary">Удалить</a> -->
+                                    </div>
                                     <small class="text-muted">{{ date('d.m.Y H:i:s', strtotime($post->created_at)) }}</small>
                                 </div>
                             </div>
@@ -41,9 +42,12 @@
                     </div>
                 @endforeach
             </div>
+
             <div class="d-flex justify-content-center">
-               {{  $posts->onEachSide(1)->links('vendor.pagination.bootstrap-4')}}
+                <!-- request()->s == $s -->
+                {{ $posts->appends(['s' => $s ])->onEachSide(1)->links('vendor.pagination.bootstrap-4') }}
             </div>
+
         </div>
     </div>
 @endsection
@@ -53,3 +57,4 @@
 </main>
 
 @include('footer')
+

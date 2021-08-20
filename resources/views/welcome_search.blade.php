@@ -32,8 +32,7 @@
                                 <p class="card-text">{{ $post->description }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="{{ route('edit_form_get', $post->id) }}" class="btn btn-sm btn-outline-secondary">Редактировать</a>
-                                    <!-- <a href="{{ route('delete', $post->id) }}"type="button" class="btn btn-sm btn-outline-secondary">Удалить</a> -->
+
                                     </div>
                                     <small class="text-muted">{{ date('d.m.Y H:i:s', strtotime($post->created_at)) }}</small>
                                 </div>

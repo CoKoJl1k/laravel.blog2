@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-7">
-                <form method="POST" action="{{ route('edit_form_put', $posts[0]->id )}}" enctype="multipart/form-data"  >
+                <form method="POST" action="{{ route('posts.update', $posts[0]->id )}}" enctype="multipart/form-data"  >
                     @method('PUT')
                     @csrf
                     <div class="form-group">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-5">
-                <form method="POST" action="{{route('delete', $posts[0]->id )}}" style="margin-top: 512px;" >
+                <form method="POST" action="{{route('posts.destroy', $posts[0]->id )}}" style="margin-top: 512px;" >
                     @method('DELETE')
                     @csrf
                     <button value="delete" name="btn_type" type="submit" class="btn btn-secondary my-1" >Удалить</button>
