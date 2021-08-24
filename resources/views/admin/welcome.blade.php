@@ -2,7 +2,6 @@
 
 @include('success_message')
 
-
 @section('content')
     <section class="jumbotron text-center">
         <div class="container">
@@ -32,7 +31,11 @@
                                 <p class="card-text">{{ $post->description }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
+                                        @if(auth()->check() && auth()->user()->indicator == 1)
+
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-secondary">Редактировать</a>
+
+                                    @endif
                                         <!-- <a href="{{ route('posts.destroy', $post->id) }}"type="button" class="btn btn-sm btn-outline-secondary">Удалить</a> -->
                                     </div>
                                     <small class="text-muted">{{ date('d.m.Y H:i:s', strtotime($post->created_at)) }}</small>

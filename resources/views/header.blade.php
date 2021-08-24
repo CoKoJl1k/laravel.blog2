@@ -29,6 +29,9 @@
                         <li><a href="{{route('errors_update')}}" class="text-white">Страница с ошибками</a></li>
                         <li><a href="{{route('test2')}}" class="text-white">test2</a></li>
                         <li><a href="{{route('list_of_posts')}}" class="text-white">Тестовая страница списка постов</a></li>
+                        <li><a href="{{route('login_form')}}" class="text-white">Авторизация</a></li>
+                        <li><a href="{{route('registration_form')}}" class="text-white">Регистрация</a></li>
+                        <li><a href="{{route('logout')}}" class="text-white">Выйти</a></li>
                         <li><a href="#" class="text-white">Email me</a></li>
                     </ul>
                 </div>
@@ -45,6 +48,13 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                 <strong>Админка</strong>
             </a>
+
+            @if(!auth()->check())
+                <strong style="color: white;">Вы не авторизованы</strong>
+            @else
+                <strong style="color: white;">{{auth()->user()->email}}</strong>
+            @endif
+
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
