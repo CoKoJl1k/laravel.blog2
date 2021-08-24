@@ -1,7 +1,5 @@
 <?php
 
-
-
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\EditController;
@@ -16,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\LoginController;
-
-
 
 use \App\Http\Middleware\AdminCheck;
 
@@ -34,7 +30,6 @@ use \App\Http\Middleware\AdminCheck;
 */
 
 // for user
-
 Route::get('/', [MainController::class, 'index'])->name('welcome');
 Route::get('/create', [CreateController::class, 'index'])->name('form');
 Route::post('/create', [CreateController::class, 'create'])->name('create_form');
@@ -47,16 +42,7 @@ Route::get('/registration',[RegisterController::class, 'index'])->name('registra
 Route::post('/registration', [RegisterController::class, 'registration'])->name('registration');
 
 
-/*
-Route::get('/', [MainController::class, 'index'])->name('welcome');
-Route::get('/create', [CreateController::class, 'index'])->name('form');
-Route::post('/create', [CreateController::class, 'create'])->name('create_form');
-Route::get('/search',[SearchController::class, 'index'])->name('search_user');
-*/
 // for admin
-
-
-
 Route::group(['middleware' => 'auth'/*'test'*/,'prefix' => 'admin'], function () {
     Route::resource('/posts', PostsController::class);
     Route::get('/search', [SearchController::class, 'index'])->name('search');
