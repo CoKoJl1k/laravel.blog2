@@ -20,6 +20,7 @@ class CreateController extends Controller
             'images' => 'nullable|image'
         ]);
 
+
         //dump($request->all());
         /*
                 $post = new Posts;
