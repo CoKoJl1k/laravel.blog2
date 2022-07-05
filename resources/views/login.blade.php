@@ -1,10 +1,8 @@
 @include('header')
 
 @include('success_message')
-
-
-
 @include('errors')
+
 @section('content')
 
     <div class = "container" style="margin-top: 100px;">

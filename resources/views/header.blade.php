@@ -28,6 +28,8 @@
                         <li><a href="{{route('posts.index')}}" class="text-white">Админка</a></li>
                         <li><a href="{{route('errors_update')}}" class="text-white">Страница с ошибками</a></li>
                         <li><a href="{{route('test2')}}" class="text-white">test2</a></li>
+                        <li><a href="{{route('test3')}}" class="text-white">test3</a></li>
+                        <li><a href="{{route('test4')}}" class="text-white">test4</a></li>
                         <li><a href="{{route('list_of_posts')}}" class="text-white">Тестовая страница списка постов</a></li>
                         <li><a href="{{route('login_form')}}" class="text-white">Авторизация</a></li>
                         <li><a href="{{route('registration_form')}}" class="text-white">Регистрация</a></li>

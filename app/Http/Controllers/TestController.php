@@ -14,4 +14,12 @@ class TestController extends Controller
         //$posts = DB::select('select * from posts order by id desc');
         return view('welcome', ['posts' => $posts]);
     }
+
+    //
+    public function test3()
+    {
+        $posts = DB::table('posts')->paginate(3);
+        //$posts = DB::select('select * from posts order by id desc');
+        return view('welcome', ['posts' => $posts]);
+    }
 }

@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->paginate(3);
+        $posts = DB::table('posts')->paginate(2);
         //$posts = DB::select('select * from posts order by id desc');
         return view('admin.welcome', ['posts' => $posts]);
     }
@@ -45,8 +45,8 @@ class PostsController extends Controller
             'description' => 'required',
             'images' => 'nullable|image'
         ]);
-      //  dump($request);
-       // dd($request);
+        // dump($request);
+        // dd($request);
         //dump($request->all());
         /*
                 $post = new Posts;
@@ -58,7 +58,6 @@ class PostsController extends Controller
         */
 
         if ($request->hasFile('file_name')) {
-
             //dd($request);
             $folder = date('Y-d-m');
             $image = $request->file('file_name')->store('/images/' . $folder);

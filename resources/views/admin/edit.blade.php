@@ -23,20 +23,17 @@
                         <input name="file_name"  type="file" class="form-control-file" id="exampleFormControlFile">
                     </div>
                     <div class="form-group">
-                        <img src="{{ isset($posts[0]->images) ? asset( 'storage/'.$posts[0]->images) : asset( 'storage/images/images.png')  }}" alt="альтернативный текст" width="300px;" height="230px;">
+                        <img src="{{ isset($posts[0]->images) ? asset( 'public/storage/'.$posts[0]->images) : asset( 'storage/images/images.png')  }}" alt="альтернативный текст" width="300px;" height="230px;">
                     </div>
-                    <button value="update" name="btn_type" type="submit" class="btn btn-primary my-1">Сохранить</button>
+                    <button value="update" name="btn_type" type="submit" class="btn btn-primary my-1" style="float:left;">Сохранить</button>
                 </form>
-            </div>
 
-            <div class="col-5">
-                <form method="POST" action="{{route('posts.destroy', $posts[0]->id )}}" style="margin-top: 512px;" >
+                <form method="POST" action="{{route('posts.destroy', $posts[0]->id )}}"  >
                     @method('DELETE')
                     @csrf
-                    <button value="delete" name="btn_type" type="submit" class="btn btn-secondary my-1" >Удалить</button>
+                    <button value="delete" name="btn_type" type="submit" class="btn btn-secondary my-1" style="float: right;">Удалить</button>
                 </form>
             </div>
-
         </div>
 
 

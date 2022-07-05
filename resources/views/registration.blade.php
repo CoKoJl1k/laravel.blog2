@@ -2,6 +2,7 @@
 
 @include('success_message')
 
+@include('errors')
 @section('content')
 
     <h1>Форма регистрации</h1>
@@ -15,11 +16,11 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input name="name" type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name">
+                        <input name="name" type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" value="{{ old('name') }}" placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('email') }}" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">

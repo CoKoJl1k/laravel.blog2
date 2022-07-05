@@ -25,7 +25,7 @@
                             <div class="card-body">
                                 <p class="card-text">{{ $post->title }}</p>
                             </div>
-                            <img class="card-img-top" src="{{ isset($post->images) ?  asset('storage/'.$post->images) :  asset( 'storage/images/images.png') }}" alt="Card image cap" height="230px;">
+                            <img class="card-img-top" src="{{ isset($post->images) ?  asset('public/storage/'.$post->images) :  asset( 'public/storage/images/images.png') }}" alt="Card image cap" height="230px;">
 
                             <div class="card-body">
                                 <p class="card-text">{{ $post->description }}</p>

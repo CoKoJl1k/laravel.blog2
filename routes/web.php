@@ -9,15 +9,22 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ListOfPostsController;
 
 use App\Http\Controllers\TestController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+//use Illuminate\Support\Facades\Request;
+
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\LoginController;
 
+
+use App\Models\Posts;
 use \App\Http\Middleware\AdminCheck;
 
-
+use Illuminate\Routing\RouteFileRegistrar;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +53,9 @@ Route::post('/registration', [RegisterController::class, 'registration'])->name(
 Route::group(['middleware' => 'auth'/*'test'*/,'prefix' => 'admin'], function () {
     Route::resource('/posts', PostsController::class);
     Route::get('/search', [SearchController::class, 'index'])->name('search');
+    Route::get('/test2', [TestController::class, 'index'])->name('test2');
+   // Route::get('/test2', [TestController::class, 'index'])->name('test2');
+
 });
 
 /*
@@ -64,9 +74,34 @@ Route::get('/errors_update', function () {
 
 // routs test
 Route::get('/list_of_posts', [ListOfPostsController::class, 'index'])->name('list_of_posts');
-
+/*
 Route::get('/test2', function () {
     $obj =  new TestController;
     return $obj->index();
 })->name('test2');
+*/
 
+Route::get('/test2', [TestController::class, 'index'])->name('test2');
+
+Route::get('/test3', function () {
+    /* $obj =  new TestController;
+    return $obj->index();
+    */
+    //return response()->redirectTo( '/');
+   // return response()->json(['name' => 'Sangeetha']);
+    $content = ['name' => 'Sangeetha'];
+    return response(json_encode($content))->withHeaders(['Content-Type' => 'application/json']);
+})->middleware('test2')->name('test3');
+
+
+Route::get('/test4', function (Request $request) {
+    //$posts = DB::table('posts')->paginate(3);
+   // return view('welcome', ['posts' => $posts]);
+    //return response(Posts::all())->header('X-Greatness-Index', 12);
+    //var_dump($request->header('Accept'));
+    //var_dump($request->header('Accept'));
+    return Posts::paginate(2);
+})->name('test4');
+
+
+Route::get('/test3', [TestController::class, 'test3'])->name('test3');

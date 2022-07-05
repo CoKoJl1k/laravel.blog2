@@ -22,7 +22,7 @@ class LoginController extends Controller
         return view('registration');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): \Illuminate\Http\RedirectResponse
     {
         //dd($request->all());
         //$email = $request->input('email');
@@ -32,8 +32,9 @@ class LoginController extends Controller
        // return view('admin.edit', ["users" => $users, "posts" => $posts]);
         //return view('admin.welcome');
 
+
         if (Auth::attempt(['email' => $request->email , 'password'=> $request->password])) {
-            session()->flash('success' , 'Вы успешо вошли.' );
+            session()->flash('success' , 'Вы успешно вошли.' );
             //dd($request->all());
             $posts = DB::table('posts')->paginate(3);
 
@@ -42,7 +43,6 @@ class LoginController extends Controller
             } else {
                 return redirect()->route('welcome', ['posts' => $posts]);
             }
-
         } else {
             $errors = ["data_has_not_been_delete" => "Email или пароль неправильный!"];
             return redirect()->route('login')->withErrors($errors);
@@ -54,7 +54,6 @@ class LoginController extends Controller
     {
         $posts = DB::table('posts')->paginate(3);
         //$posts = DB::select('select * from posts order by id desc');
-
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -62,7 +61,7 @@ class LoginController extends Controller
         ]);
 
         $user = User::create(['name'=> $request->name, 'email' => $request->email , 'password'=> Hash::make($request->password)]);
-        session()->flash('success' , 'Вы успешо зарегистрировались' );
+        session()->flash('success', 'Вы успешно зарегистрировались' );
         //dd($request->all());
         Auth::login($user);
         return redirect()->route('posts.index', ['posts' => $posts ]);
@@ -72,7 +71,7 @@ class LoginController extends Controller
     public function logout(Request $request): \Illuminate\Http\RedirectResponse
     {
         Auth::logout();
-        //session()->flash('success' , 'Вы успешо вышли' );
+        //session()->flash('success' , 'Вы успешно вышли');
         return redirect()->route('login_form');
         //return view('login');
     }
