@@ -13,8 +13,6 @@ class AlterTableAddColumnIndicator extends Migration
      */
     public function up()
     {
-        //
-
         Schema::table('users', function (Blueprint $table) {
             $table->integer('indicator')->default(0);
         });
@@ -27,7 +25,6 @@ class AlterTableAddColumnIndicator extends Migration
      */
     public function down()
     {
-        //
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('indicator');
         });

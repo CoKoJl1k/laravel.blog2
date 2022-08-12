@@ -48,14 +48,12 @@ Route::post('/login',[LoginController::class, 'login'])->name('login');
 Route::get('/registration',[RegisterController::class, 'index'])->name('registration_form');
 Route::post('/registration', [RegisterController::class, 'registration'])->name('registration');
 
-
 // for admin
 Route::group(['middleware' => 'auth'/*'test'*/,'prefix' => 'admin'], function () {
     Route::resource('/posts', PostsController::class);
     Route::get('/search', [SearchController::class, 'index'])->name('search');
     Route::get('/test2', [TestController::class, 'index'])->name('test2');
    // Route::get('/test2', [TestController::class, 'index'])->name('test2');
-
 });
 
 /*
@@ -84,7 +82,8 @@ Route::get('/test2', function () {
 Route::get('/test2', [TestController::class, 'index'])->name('test2');
 
 Route::get('/test3', function () {
-    /* $obj =  new TestController;
+    /*
+    $obj =  new TestController;
     return $obj->index();
     */
     //return response()->redirectTo( '/');
@@ -104,4 +103,4 @@ Route::get('/test4', function (Request $request) {
 })->name('test4');
 
 
-Route::get('/test3', [TestController::class, 'test3'])->name('test3');
+Route::get('/test5', [TestController::class, 'test5'])->name('test5');

@@ -16,7 +16,7 @@ class TestController extends Controller
     }
 
     //
-    public function test3()
+    public function test5()
     {
         $posts = DB::table('posts')->paginate(3);
         //$posts = DB::select('select * from posts order by id desc');

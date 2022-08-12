@@ -1,7 +1,6 @@
 @include('header')
 
 @include('success_message')
-
 @include('errors');
 
 @section('content')
